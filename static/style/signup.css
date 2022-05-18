@@ -2,11 +2,19 @@ body {
     background-image: url("/static/images/pokemon.png");
     background-size: cover;
 }
+p {
+    font-family: 'Dokdo', cursive;
+    color: #00366B;
+    font-weight: bold;
+    text-align: center;
+    font-size: 100px;
+    margin: 55px auto 50px;
+}
 
 .container {
     width: 330px;
     height: 330px;
-    margin: 130px auto 10px;
+    margin: 0px auto 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
