@@ -4,17 +4,21 @@ body {
 }
 
 .container {
-    width: 360px;
-    height: 360px;
+    width: 330px;
+    height: 330px;
     margin: 130px auto 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-item: center;
     flex-wrap: wrap;
-    background-color: #B9DFFC;
+    background-image: url("/static/images/pngwing.com.png");
+    background-size: cover;
     border: 1px solid #DBDBDB;
     border-radius: 100%;
+    font-family: 'Dokdo', cursive;
+    font-size: 30px;
+    text-align: center;
 }
 
 
