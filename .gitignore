@@ -1,4 +1,4 @@
-config/
+controller/config/
 config.py
 .idea/
 *.pyc
