@@ -6,7 +6,7 @@ from datetime import datetime
 bp = Blueprint('feed_upload', __name__, url_prefix='/')
 
 client = MongoClient('localhost', 27017)
-db = client.dbpokemon
+db = client.dbpokmon
 
 
 @bp.route('/main')
@@ -30,7 +30,7 @@ def file_upload():
     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
     filename = f'{title_receive}-{mytime}'
     # 파일 저장 경로 설정 (파일은 db가 아니라, 서버 컴퓨터 자체에 저장됨)
-    save_to = f'static/{filename}.{extension}'
+    save_to = f'static/uploads/{filename}.{extension}'
     # 파일 저장!
     file.save(save_to)
 
@@ -46,8 +46,7 @@ def file_upload():
     #     'content': content,
     #     'created_at': created_at
     # }
-
-    return jsonify({'result': 'success'})
+    return jsonify({'result': '업로드 완료!'})
 
 # # 주소에다가 /fileshow/이미지타이틀 입력하면 그 이미지타이틀을 title이라는 변수로 받아옴
 # @bp.route('/fileshow/<title>')
