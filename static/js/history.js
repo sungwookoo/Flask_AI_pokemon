@@ -7,7 +7,7 @@ $(document).ready(function () {
 })
 
 function nextPage() {
-    if (total_feed < 10 || (total_feed-(page*8) <= 0))  {
+    if (total_feed < 9 || (total_feed - (page * 8) <= 0)) {
         alert("마지막 페이지입니다.")
         return false;
     }
@@ -16,7 +16,7 @@ function nextPage() {
 }
 
 function prevPage() {
-    if (total_feed < 10 || page === 1) {
+    if (page === 1) {
         alert("첫 페이지입니다.")
         return false;
     }
