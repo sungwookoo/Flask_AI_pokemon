@@ -25,8 +25,8 @@ p {
     border: 1px solid #DBDBDB;
     border-radius: 100%;
     font-family: 'Dokdo', cursive;
-    font-size: 30px;
-    text-align: center;
+    font-size: 20px;
+    background-repeat: no-repeat;
 }
 
 
@@ -63,6 +63,7 @@ p {
     font-size: 14px;
     font-weight: 600;
 
+
 }
 
 #btn_signup:disabled {
@@ -79,4 +80,21 @@ p {
 
 #btn_signup:focus {
     outline: none;
+}
+a {
+    cursor: default;
+}
+
+
+.sign_up {
+    color: #00366B;
+    align-self: center;
+    font-size: 20px;
+}
+
+.sign_up a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0095f6;
+    cursor: pointer;
 }
