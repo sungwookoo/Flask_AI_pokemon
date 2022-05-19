@@ -8,53 +8,49 @@ from werkzeug.utils import secure_filename
 bp = Blueprint('feed_upload', __name__, url_prefix='/')
 
 client = MongoClient('localhost', 27017)
-db = client.dbpokemen
+db = client.dbpokmon
 
 
 @bp.route('/main')
 def home():
     return render_template('index.html')
 
-# 작업중
+# 이미지 전송(POST)
+@bp.route('/api/feed_upload', methods=['POST'])
+def file_upload():
+    title_receive = request.form['title_give']
+    file = request.files['file_give']
+    extension = file.filename.split('.')[-1]
+    # 파일 이름이 중복되면 안되므로, 지금 시간을 해당 파일 이름으로 만들어서 중복이 되지 않게 함!
+    today = datetime.now()
+    mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
+    filename = f'{title_receive}-{mytime}'
+    # 파일 저장 경로 설정 (파일은 db가 아니라, 서버 컴퓨터 자체에 저장됨)
+    save_to = f'static/{filename}.{extension}'
+    # 파일 저장!
+    file.save(save_to)
 
-# @bp.route('/api/feed_upload', methods=['POST'])
-# def file_upload():
-#     title_receive = request.form['title_give']
-#     file = request.files['file_give']
-#     extension = file.filename.split('.')[-1]
-#     today = datetime.now()
-#     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
-#     filename = f'{title_receive}-{mytime}'
-#     save_to = f'static/uploads/{filename}.{extension}'
-#     file.save(save_to)
-#
-#     doc = {'title':title_receive, 'img':f'{filename}.{extension}'}
-#     db.camp.insert_one(doc)
-#
-#     return jsonify({'result':'success'})
+    # 아래와 같이 입력하면 db에 추가 가능!
+    doc = {'title': title_receive, 'img': f'{filename}.{extension}'}
+    db.camp.insert_one(doc)
 
-    # if request.files['file']:
-    #     if request.method == 'POST':
-    #         file = request.files['file']
-    #         content = request.form['content']
-    #         user_id = request.form['user_id']
-    #         filename = secure_filename(file.filename)
-    #         file.save(os.path.join('static', 'uploads', filename))
-    #         feed_img_src = os.path.join('static', 'uploads', filename)
-    #         created_at = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
-    #
-    #         doc = {
-    #             'user_id': user_id,
-    #             'feed_img_src': feed_img_src,
-    #             'content': content,
-    #             'created_at': created_at
-    #         }
-    #
-    #         db.feed.insert_one(doc)
+    return jsonify({'result': 'success'})
+
+    user_id = request.form['user_id']
+    content = request.form['content']
+    created_at = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+
+    doc = {
+        'feed_img_src': feed_img_src,
+        'user_id': user_id,
+        'content': content,
+        'created_at': created_at
+    }
+
+    db.feed.insert_one(doc)
 
 
-
-## <<포스트맨 사용 예제>> ##
+# <<포스트맨 사용 예제>> ##
 # @bp.route('/api/get_hello', methods=['GET'])
 # def hello():
 #     user_id = request.args.get('user_id')
