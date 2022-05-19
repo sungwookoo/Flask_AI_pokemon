@@ -68,3 +68,5 @@ function is_nick_name(asValue) {
     return can_input.test(asValue);
 }
 
+
+
