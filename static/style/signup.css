@@ -2,7 +2,7 @@ body {
     background-image: url("/static/images/pokemon.png");
     background-size: cover;
 }
-p {
+.logo {
     font-family: 'Dokdo', cursive;
     color: #00366B;
     font-weight: bold;
@@ -24,8 +24,6 @@ p {
     background-size: cover;
     border: 1px solid #DBDBDB;
     border-radius: 100%;
-    font-family: 'Dokdo', cursive;
-    font-size: 20px;
     background-repeat: no-repeat;
 }
 
@@ -88,6 +86,7 @@ a {
 
 .sign_up {
     color: #00366B;
+    font-family: 'Dokdo', cursive;
     align-self: center;
     font-size: 20px;
 }
@@ -97,4 +96,15 @@ a {
     font-weight: bold;
     color: #0095f6;
     cursor: pointer;
+}
+
+.append_st {
+    margin: 0px;
+}
+.creatst {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0px;
 }

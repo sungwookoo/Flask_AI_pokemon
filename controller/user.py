@@ -50,7 +50,7 @@ def check():
     hashed_password = hashlib.sha256(new_pw_receive.encode('utf-8')).hexdigest()
 
     doc1 = {
-        'email': new_id_receive
+        'user_id': new_id_receive
     }
     doc2 = {
         'nick_name': new_nick_name_receive
@@ -61,7 +61,7 @@ def check():
 
     if check_id is None and check_nick_name is None:
         doc = {
-            "email": new_id_receive,
+            "user_id": new_id_receive,
             "password": hashed_password,
             "nick_name": new_nick_name_receive
             }
@@ -80,7 +80,7 @@ def sign_in():
     email_receive = request.form['email_give']
     pw_receive = request.form['pw_give']
     hashed_pw = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
-    result = db.user.find_one({'email':email_receive, 'password': hashed_pw})
+    result = db.user.find_one({'user_id':email_receive, 'password': hashed_pw})
 
     if result is not None:
         payload = {
