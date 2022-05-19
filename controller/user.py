@@ -8,7 +8,7 @@ from pymongo import MongoClient
 from datetime import date, datetime, timedelta
 
 client = MongoClient('localhost', 27017)
-db = client.dbpokemen
+db = client.dbpokemon
 
 SECRET_KEY = Config.SECRET_KEY
 
