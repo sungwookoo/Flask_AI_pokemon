@@ -30,6 +30,17 @@ def make_insert(doc, table):
             'created_at': now,
             'feed_img_src': random_img_src()
         }
-        make_insert(doc, 'feed')"""
+        make_insert(doc, 'feed')
+    """
     db_table = getattr(db, table)
     db_table.insert_one(doc)
+
+
+for i in range(10):
+        doc = {
+            'user_id': 'test@test.com',
+            'content': str(i),
+            'created_at': now,
+            'feed_img_src': random_img_src()
+        }
+        make_insert(doc, 'feed')

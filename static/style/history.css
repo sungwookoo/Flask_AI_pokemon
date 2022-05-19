@@ -1,0 +1,146 @@
+*{
+    /*border: 1px solid red;*/
+}
+
+body {
+    display:flex;
+    flex-direction:column;
+}
+
+/*profile*/
+.profile_nickname_box{
+    display: flex;
+}
+.profile_nickname{
+    font-size: 25px;
+}
+.profile_setting{
+    margin-left: 30px;
+}
+.setting_button{
+    font-size: 15px;
+    margin-top: 5px;
+    color: ghostwhite;
+    background-color: palegreen;
+    border: solid palegreen;
+    border-radius: 10px;
+}
+.profile_post_box{
+    display: flex;
+    margin-top: 30px;
+    font-size: 20px;
+}
+.profile_post{
+
+}
+.profile_follower{
+    margin-left: 50px;
+}
+.profile_follow{
+    margin-left: 50px;
+}
+.profile_name{
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+/*feed*/
+
+.line{
+    display: flex;
+    width: 70%;
+    margin: 1em auto;
+    border-bottom: 1px solid lightgray;
+}
+
+.profile{
+    display:flex;
+    flex-direction: row;
+    width: 70%;
+    height: 30%;
+    margin: 0 auto;
+    justify-content: center;
+
+    background-color: #DBDBDB;
+}
+
+.container{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    height: 100%;
+    justify-content: center;
+    /*background-color: #8a8a8a;*/
+}
+
+.feed_container_side{
+    display: flex;
+    position: relative; width:5%; height:100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feed_container{
+    display: flex;
+    position: relative;
+    width:70%;
+    height:100%;
+    padding: 0.5em;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.badge_container{
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    margin:0 auto;
+    width: 68.7%;
+    height: 100%;
+    background-color: #0095f6;
+    justify-content: center;
+    align-content: center;
+}
+
+.badge{
+    position: relative;
+    height: 50%;
+    background-color: #DBDBDB;
+}
+
+.ranking{
+    position: relative;
+    height: 50%;
+    background-color: #00366B;
+}
+
+.btn_page{
+    height:35px;
+    width:35px;
+    cursor:pointer;
+}
+
+.btn_next{
+    width: 100%;
+    height: 100%;
+    background:url("../images/btn_next.png");
+    background-size: contain;
+}
+
+.btn_prev{
+    width: 100%;
+    height: 100%;
+    background:url("../images/btn_prev.png");
+    background-size: contain;
+}
+
+.feed{
+    margin: 1em;
+}
+
+.feed img{
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+}
