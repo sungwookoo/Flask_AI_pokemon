@@ -101,3 +101,14 @@ a {
     color: #0095f6;
     cursor: pointer;
 }
+
+.append_st {
+    margin: 0px;
+}
+.creatst {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0px;
+}

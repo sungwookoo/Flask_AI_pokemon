@@ -1,5 +1,6 @@
 const loginbuttom = document.querySelector('#btn_login');
 loginbuttom.addEventListener('click', sign_in)
+
 function sign_in() {
     user_id = $('#user_id').val();
     password = $('#password').val();
@@ -16,7 +17,16 @@ function sign_in() {
                 $.cookie('mytoken', response['token'], {path: '/'});
                 window.location.replace('/main')
             } else {
-                alert(response['msg'])
+                var child = document.querySelector(".append_st");
+                if (child.hasChildNodes()) {
+                    child.removeChild(child.childNodes[0]);
+                }
+                var creat_sentence = document.createElement('p');
+                var creat_text = document.createTextNode(response['msg']);
+                creat_sentence.appendChild(creat_text);
+                creat_sentence.classList.add('creatst');
+                child.appendChild(creat_sentence);
+
             }
         }
     });
