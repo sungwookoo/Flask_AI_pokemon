@@ -103,11 +103,23 @@ body {
     align-content: center;
 }
 
-.badge{
+.badges{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 auto;
     position: relative;
     height: 50%;
-    background-color: #DBDBDB;
 }
+
+.badges img{
+    margin: 10px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
 
 .ranking{
     position: relative;
