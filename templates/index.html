@@ -7,11 +7,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>메인</title>
     <link href="../static/style/index.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/style/common.css" rel="stylesheet" type="text/css"/>
+
 </head>
 
 <body>
+
+ <!-- navigation 부분 각 html에 추가 해주세요  -->
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link logo" aria-current="page" href="#"><img src="../static/images/logo.png" alt=""></a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">업로드</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">내역화면</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">로그아웃</a>
+        </li>
+    </ul>
+
     <div class="main_container">
         <div class="file_upload">
+            <input style="width:300px;" type="text" id="title" placeholder="업로드할 이미지 제목을 입력해주세요">
             <input class="file_choice" type="file" id="file">
             <button class="upload_button" onclick="posting()">업로드</button>
         </div>
@@ -21,6 +42,10 @@
             </p>
         </div>
     </div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="../static/js/index.js"></script>
 
 </body>
 </html>

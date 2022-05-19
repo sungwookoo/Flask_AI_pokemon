@@ -18,9 +18,10 @@ function posting() {
             window.location.reload()
         }
     });
-  }
+}
 
-  function find_img() {
-    let title = $('#find_title').val()
-    document.getElementById('link').href = '/fileshow/'+title
-  }
+  // function find_img() {
+  //   let title = $('#find_title').val()
+  //   document.getElementById('link').href = '/fileshow/'+title
+  // }
+
