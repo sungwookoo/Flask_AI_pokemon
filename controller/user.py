@@ -3,14 +3,14 @@ bp = Blueprint('user', __name__, url_prefix='/')
 from functools import wraps
 import jwt
 import hashlib
-import config
+from config.config import Config
 from pymongo import MongoClient
 from datetime import date, datetime, timedelta
 
 client = MongoClient('localhost', 27017)
-db = client.dbpokemen
+db = client.dbpokemon
 
-
+SECRET_KEY = Config.SECRET_KEY
 
 @bp.route('/')
 def login():
@@ -24,7 +24,7 @@ def authrize(f):
         user = None
         token = request.cookies['mytoken']
         try:
-            user = jwt.decode(token, algorithms=['HS256'])
+            user = jwt.decode(token,SECRET_KEY, algorithms=['HS256'])
         except:
             abort(401)
         return f(user, *args, **kws)
@@ -63,7 +63,7 @@ def check():
         doc = {
             "email": new_id_receive,
             "password": hashed_password,
-            "nick_name": new_nick_name_receive,
+            "nick_name": new_nick_name_receive
             }
         db.user.insert_one(doc)
         return jsonify({"result": "success", 'msg': '회원가입을 축하합니다.', 'url': "/"})
@@ -87,7 +87,7 @@ def sign_in():
             'id' : str(result.get('_id')),
             'nick_name':result.get('nick_name')
         }
-        token = jwt.encode(payload, algorithm='HS256')
+        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
         return jsonify({'result': 'success', 'token': token})
     else:
