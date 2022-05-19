@@ -1,14 +1,18 @@
 *{
     border: 1px solid red;
 }
+body{
+    background-image: url("/static/images/pokemen.png");
+}
 
 /*이미지 업로드 박스*/
 .main_container{
     margin: 10px auto;
     padding-top: 100px;
     width: 30%;
-    height: 500px;
-    /*background-color: red;*/
+    height: 660px;
+    background-color: palegreen;
+    border-radius: 20px;
 }
 
 .img_box{
@@ -20,16 +24,25 @@
     height: 80%;
 }
 
+.file_upload{
+    width: 100%;
+    height: 400px;
+    background-color: lightcoral;
+}
+
+.file_choice{
+    background-color: paleturquoise;
+}
+
+.upload_button{
+
+}
+
 .content_box{
 
 }
 
 .label{
-    margin-left: 15%;
+
 
 }
-
-.point{
-    margin-left: 15%;
-}
-

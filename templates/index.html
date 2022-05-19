@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>업로드</title>
-        <link href="../static/style/index.css" rel="stylesheet" type="text/css"/>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>메인</title>
+    <link href="../static/style/index.css" rel="stylesheet" type="text/css"/>
+</head>
 
-    <body>
-        <div class="main_container">
-            <div class="img_box"><img class="origin_img" src="000.png"><p><button>업로드</button></p>
-            </div>
-            <div class="content_box">
-                <p class="label"><button>결과 확인</button></p>
-            </div>
+<body>
+    <div class="main_container">
+        <div class="file_upload">
+            <input class="file_choice" type="file" id="file">
+            <button class="upload_button" onclick="posting()">업로드</button>
         </div>
-    </body>
+        <div class="content_box">
+            <p class="label">
+                <button>결과 확인</button>
+            </p>
+        </div>
+    </div>
+
+</body>
 </html>
