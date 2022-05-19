@@ -5,34 +5,82 @@ function sign_up() {
     let new_pw = $('#new_password').val();
     let new_nick_name = $('#new_nickname').val();
     if (new_id == "") {
-        alert("email 주소가 비어있습니다.")
+        var child = document.querySelector(".append_st");
+        if (child.hasChildNodes()){
+            child.removeChild(child.childNodes[0]);
+        }
+        var creat_sentence = document.createElement( 'p' );
+        var creat_text = document.createTextNode( 'email 주소가 비어있습니다.' );
+        creat_sentence.appendChild(creat_text);
+        creat_sentence.classList.add('creatst');
+        child.appendChild(creat_sentence);
         $("#new_id").focus()
         return;
     }
     if (!is_id(new_id)) {
-        alert("email 형식을 확인 해주세요. 2-10자")
+        var child = document.querySelector(".append_st");
+        if (child.hasChildNodes()){
+            child.removeChild(child.childNodes[0]);
+        }
+        var creat_sentence = document.createElement( 'p' );
+        var creat_text = document.createTextNode( 'email 형식을 확인 해주세요.' );
+        creat_sentence.appendChild(creat_text);
+        creat_sentence.classList.add('creatst');
+        child.appendChild(creat_sentence);
         $("#new_id").focus()
         return;
     }
 
     if (new_nick_name == "") {
-        alert("nick_name 칸이 비어있습니다.")
+        var child = document.querySelector(".append_st");
+        if (child.hasChildNodes()){
+            child.removeChild(child.childNodes[0]);
+        }
+        var creat_sentence = document.createElement( 'p' );
+        var creat_text = document.createTextNode( '닉네임 칸이 비어있습니다.' );
+        creat_sentence.appendChild(creat_text);
+        creat_sentence.classList.add('creatst');
+        child.appendChild(creat_sentence);
         $("#new_nick_name").focus()
         return;
     }
     if (!is_nick_name(new_nick_name)) {
-        alert("nick_name 형식을 확인 해주세요. 2-10자")
+        var child = document.querySelector(".append_st");
+        if (child.hasChildNodes()){
+            child.removeChild(child.childNodes[0]);
+        }
+        var creat_sentence = document.createElement( 'p' );
+        var creat_text = document.createTextNode( '닉네임 형식을 확인 해주세요.' );
+        creat_sentence.appendChild(creat_text);
+        creat_sentence.classList.add('creatst');
+        child.appendChild(creat_sentence);
         $("#new_nick_name").focus()
         return;
     }
 
     if (new_pw == "") {
-        alert("비밀번호 칸이 비어있습니다.")
+        var child = document.querySelector(".append_st");
+        if (child.hasChildNodes()){
+            child.removeChild(child.childNodes[0]);
+        }
+        var creat_sentence = document.createElement( 'p' );
+        var creat_text = document.createTextNode( '비밀번호 칸이 비어있습니다.' );
+        creat_sentence.appendChild(creat_text);
+        creat_sentence.classList.add('creatst');
+        child.appendChild(creat_sentence);
         $("#new_pw").focus()
         return;
     }
     if (!is_pw(new_pw)) {
-        alert("비밀번호의 형식을 확인해주세요. 8-20자")
+        var child = document.querySelector(".append_st");
+        if (child.hasChildNodes()){
+            child.removeChild(child.childNodes[0]);
+        }
+        var creat_sentence = document.createElement( 'p' );
+        var creat_text = document.createTextNode( '비밀번호의 형식을 확인해주세요.' );
+        creat_sentence.appendChild(creat_text);
+        creat_sentence.classList.add('creatst');
+        child.appendChild(creat_sentence);
         $("#new_pw").focus()
         return;
     }
