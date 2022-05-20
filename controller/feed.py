@@ -20,15 +20,52 @@ def get_feed():
 
     user = list(db.user.find({'user_id': user_id}))
     user = object_id_to_string(user)
-    user = user[0]
 
-    total_feed = db.feed.count_documents({'user_id': user_id})
-    feed_list = list(db.feed.find({'user_id': user_id}).skip((page - 1) * 8).limit(8))
+    # total_feed = db.feed.count_documents({'user_id': user_id})
+    # feed_list = list(db.feed.find({'user_id': user_id}).skip((page - 1) * 8).limit(8))
+    pipeline = [
+        {
+            "$group": {
+                "_id": "$feed_img_src",
+                "user_id": {"$addToSet": "$user_id"}
+            }
+        },
+        {
+            "$match": {"user_id": {"$in": ["test@test.com"]}}
+        },
+        {
+            "$sort": {"_id": 1}
+        },
+        {
+            "$skip": (page - 1) * 8
+        },
+        {
+            "$limit": 8
+        }
+    ]
+
+    total_pipeline = [
+        {
+            "$group": {
+                "_id": "$feed_img_src",
+                "user_id": {"$addToSet": "$user_id"}
+            }
+        },
+        {
+            "$match": {"user_id": {"$in": ["test@test.com"]}}
+        },
+        {
+            "$sort": {"_id": 1}
+        }
+    ]
+    total_feed_list = list(db.feed.aggregate(total_pipeline))
+
+    feed_list = list(db.feed.aggregate(pipeline))
     feed_list = object_id_to_string(feed_list)
 
     return jsonify({
         'feed_list': feed_list,
-        'total_feed': total_feed,
+        'total_feed': len(total_feed_list),
         'page': str(page),
         'user': user
     })
@@ -39,8 +76,8 @@ def get_user():
     user_id = request.args.get('user_id')
     user = list(db.user.find({'user_id': user_id}))
     user = object_id_to_string(user)
-    user = user[0]
 
     return jsonify({
         'user': user
     })
+
