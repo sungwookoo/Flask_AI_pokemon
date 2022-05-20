@@ -1,7 +1,6 @@
 let page = 1;
 let total_feed = 0;
-// 임시
-let current_user_id = 'test@test.com';
+
 $(document).ready(function () {
     getHistory();
     getProfile();
@@ -30,8 +29,9 @@ function getProfile() {
     $.ajax({
         type: "GET",
         url: "/api/get_user",
-        data: {user_id: current_user_id, page: page},
+        data: {page: page},
         success: function (response) {
+            console.log(response)
             let user = response['user'][0];
             let profile_img = "";
             let name = user['nick_name'];
