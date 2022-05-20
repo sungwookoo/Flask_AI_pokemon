@@ -14,6 +14,7 @@ SECRET_KEY = Config.SECRET_KEY
 
 @bp.route('/')
 def login():
+
     return render_template('login.html')
 
 def authrize(f):
@@ -35,6 +36,7 @@ def authrize(f):
 @bp.route('/main')
 @authrize
 def home(user):
+    print(user)
     if user is not None:
         return render_template('index.html')
 
