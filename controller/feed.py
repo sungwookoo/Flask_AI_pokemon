@@ -33,7 +33,7 @@ def get_feed(user):
             }
         },
         {
-            "$match": {"user_id": {"$in": ["test@test.com"]}}
+            "$match": {"user_id": {"$in": [user['user_id']]}}
         },
         {
             "$sort": {"_id": 1}
@@ -54,7 +54,7 @@ def get_feed(user):
             }
         },
         {
-            "$match": {"user_id": {"$in": ["test@test.com"]}}
+            "$match": {"user_id": {"$in": [user['user_id']]}}
         },
         {
             "$sort": {"_id": 1}
