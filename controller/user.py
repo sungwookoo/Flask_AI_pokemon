@@ -36,7 +36,6 @@ def authrize(f):
 @authrize
 def home(user):
     if user is not None:
-        print(user)
         return render_template('index.html')
 
 @bp.route('/signup')
