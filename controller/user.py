@@ -36,6 +36,7 @@ def authrize(f):
 @authrize
 def home(user):
     if user is not None:
+        print(user)
         return render_template('index.html')
 
 @bp.route('/signup')
@@ -84,7 +85,7 @@ def sign_in():
 
     if result is not None:
         payload = {
-            'id' : str(result.get('_id')),
+            'user_id' : str(result.get('user_id')),
             'nick_name':result.get('nick_name')
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
