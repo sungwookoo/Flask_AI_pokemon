@@ -1,3 +1,21 @@
+function logout() {
+    $.ajax({
+        type: "GET",
+        url: "/api/logout",
+        data: {},
+        success: function (response) {
+            if (response['result'] === 'success') {
+                $.removeCookie('token', response['token'])
+                alert(response['msg'])
+                window.location.href = '/';
+            } else {
+                alert(response['msg'])
+                window.location.href = '/';
+            }
+        }
+    })
+}
+
 function posting() {
     // let title = $('#title').val()
     let file = $('#file')[0].files[0]

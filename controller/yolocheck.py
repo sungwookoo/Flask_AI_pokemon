@@ -246,7 +246,7 @@ def yolo():
 		user_id = user['user_id']
 		created_at = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
 		try:
-			feed_img_src = labeldn[poke_li[0]]
+			feed_img_src = 'static/pokemon/'+labeldn[poke_li[0]]+'.png'
 			doc = {
 				'user_id': user_id,
 				'poke_li': poke_li,

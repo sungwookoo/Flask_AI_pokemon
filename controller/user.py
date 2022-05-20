@@ -9,13 +9,8 @@ from datetime import date, datetime, timedelta
 
 client = MongoClient('localhost', 27017)
 db = client.dbpokemon
-
 SECRET_KEY = Config.SECRET_KEY
 
-@bp.route('/')
-def login():
-
-    return render_template('login.html')
 
 def authrize(f):
     @wraps(f)
@@ -31,6 +26,14 @@ def authrize(f):
         return f(user, *args, **kws)
 
     return decorated_function
+
+
+@bp.route('/')
+@authrize
+def login(user):
+    if user is not None:
+        return render_template('index.html')
+    return render_template('login.html')
 
 
 @bp.route('/main')
@@ -87,10 +90,29 @@ def sign_in():
     if result is not None:
         payload = {
             'user_id' : str(result.get('user_id')),
-            'nick_name':result.get('nick_name')
+            'nick_name':result.get('nick_name'),
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=100)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
         return jsonify({'result': 'success', 'token': token})
     else:
         return jsonify({'result':'fail', 'msg': 'id, pw 를 확인해주세요'})
+
+
+# 로그아웃 API
+@bp.route("/api/logout", methods=['GET'])
+def logout_proc():
+    token_receive = request.cookies.get('token')
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        return jsonify({
+            'result': 'success',
+            'token': jwt.encode(payload, SECRET_KEY, algorithm='HS256'),
+            'msg': '로그아웃 성공'
+        })
+    except jwt.ExpiredSignatureError or jwt.exceptions.DecodeError:
+        return jsonify({
+            'result': 'fail',
+            'msg': '로그아웃 실패'
+        })
