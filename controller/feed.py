@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, jsonify
 from pymongo import MongoClient
 from util.common import object_id_to_string
+from controller.user import authrize
 
 bp = Blueprint('feed', __name__, url_prefix='/')
 
@@ -9,17 +10,18 @@ db = client.dbpokemon
 
 
 @bp.route('/history')
-def get_history():
-    return render_template('history.html')
+@authrize
+def get_history(user):
+    return render_template('history.html', email=user['user_id'])
 
 
 @bp.route('/api/get_feed', methods=['GET'])
-def get_feed():
-    user_id = request.args.get('user_id')
+@authrize
+def get_feed(user):
     page = int(request.args.get('page'))
 
-    user = list(db.user.find({'user_id': user_id}))
-    user = object_id_to_string(user)
+    find_user = list(db.user.find({'user_id': user['user_id']}))
+    find_user = object_id_to_string(find_user)
 
     # total_feed = db.feed.count_documents({'user_id': user_id})
     # feed_list = list(db.feed.find({'user_id': user_id}).skip((page - 1) * 8).limit(8))
@@ -67,14 +69,14 @@ def get_feed():
         'feed_list': feed_list,
         'total_feed': len(total_feed_list),
         'page': str(page),
-        'user': user
+        'user': find_user
     })
 
 
 @bp.route('/api/get_user', methods=['GET'])
-def get_user():
-    user_id = request.args.get('user_id')
-    user = list(db.user.find({'user_id': user_id}))
+@authrize
+def get_user(user):
+    user = list(db.user.find({'user_id': user['user_id']}))
     user = object_id_to_string(user)
 
     return jsonify({
