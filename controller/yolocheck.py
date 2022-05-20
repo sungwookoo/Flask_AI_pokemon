@@ -8,7 +8,12 @@ from keras.preprocessing.image import load_img #이미지를 PIL형식으로 로
 from keras.preprocessing.image import img_to_array #PIL Image 인스턴스를 Numpy배열로 변환
 from matplotlib import pyplot
 from matplotlib.patches import Rectangle # 사각형 그리기.
+from user import authrize
+from pymongo import MongoClient
+import datetime
 
+client = MongoClient('localhost', 27017)
+db = client.dbpokemon
 
 
 class BoundBox:
@@ -176,7 +181,7 @@ model = load_model('model.h5')
 # define the expected input shape for the model
 input_w, input_h = 416, 416
 # define our new photo
-photo_filename = 'zebra2.jpg'
+photo_filename = '../static/uproads/temp.jpg'
 # load and prepare image
 image, image_w, image_h = load_image_pixels(photo_filename, (input_w, input_h))
 # make prediction
@@ -234,15 +239,18 @@ for i in range(len(v_boxes)):
 # draw what we found
 draw_boxes(photo_filename, v_boxes, v_labels, v_scores)
 
+@authrize
+def pokemondata(user):
+	user_id = user[0]
+	created_at = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+	feed_img_src = labeldn[poke_li[0]]
+	doc = {
+		'user_id': user_id,
+		'poke_li': poke_li,
+		'acc_li': acc_li,
+		'created_at': created_at,
+		'feed_img_src': feed_img_src
+	}
+	db.feed.insert_one(doc)
 
-def pokemondata():
-	return poke_li,acc_li,labeldn[poke_li[0]]
-
-
-
-print(pokemondata())
-
-
-# def go_result():
-#     return render_template('result.html')
-# go_result()
+pokemondata()
