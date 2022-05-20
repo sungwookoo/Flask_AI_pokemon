@@ -1,9 +1,10 @@
 let page = 1;
 let total_feed = 0;
-
+// 임시
+let current_user_id = 'test@test.com';
 $(document).ready(function () {
-    getProfile()
     getHistory();
+    getProfile();
 })
 
 function nextPage() {
@@ -28,27 +29,22 @@ function getProfile() {
     $('#profile_data').empty();
     $.ajax({
         type: "GET",
-        url: "/api/get_feed",
+        url: "/api/get_user",
         data: {user_id: current_user_id, page: page},
         success: function (response) {
-            let user = response['user'];
+            let user = response['user'][0];
             let profile_img = "";
-            let name = user[i]['nick_name'];
-            let user_id = user[i]['user_id'];
+            let name = user['nick_name'];
+            // let user_id = user['user_id'];
             let temp_html = `
                 <div class="profile_img"><img class="profile_pic" src="${profile_img}" alt="프로필"></div>
                 <div class="profile_word">
                     <div class="profile_nickname_box">
-                        <div class="profile_nickname">${user_id}</div>
-                        <div class="profile_setting">
-                            <button class="setting_button" data-bs-toggle="modal" data-bs-target="#editprofileimg">
-                            프로필 편집</button>
-                        </div>
+                        <div class="profile_nickname">${name}</div>
                     </div>
                     <div class="profile_post_box">
-                        <div class="profile_post">게시물 ${total_feed}</div>
+                        <div class="profile_post">수집한 포켓몬 수 : ${total_feed}</div>
                     </div>
-                    <div class="profile_name"><strong>${name}</strong></div>
                 </div> `
             $('#profile_data').append(temp_html);
         }
@@ -57,8 +53,6 @@ function getProfile() {
 
 function getHistory() {
     $('#feed_data').empty();
-    // 임시
-    current_user_id = 'test@test.com';
 
     $.ajax({
         type: "GET",
@@ -70,13 +64,14 @@ function getHistory() {
             let user = response['user'];
             total_feed = parseInt(response['total_feed']);
             for (let k = 0; k < feeds.length; k++) {
-                if (current_user_id === feeds[k]['user_id']) {
-                    let feed_img_src = feeds[k]['feed_img_src'];
+                // if (current_user_id === feeds[k]['user_id']) {
+                //     let feed_img_src = feeds[k]['feed_img_src'];
+                    let feed_img_src = feeds[k]['_id'];
                     let temp_html = `
                         <div class="feed"><img src="${feed_img_src}" width="300" height="300"></div>
                         `
                     $('#feed_data').append(temp_html);
-                }
+
             }
         }
     })
