@@ -19,10 +19,7 @@ def file_upload():
     title_receive = request.form['title_give']
     file = request.files['file_give']
     # user_id = request.form['user_id']
-    # content = request.form['conten(t']
-    # created_at = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
-    print(file)
-
+    # content = request.form['content']
     # 해당 파일에서 확장자명만 추출
     extension = file.filename.split('.')[-1]
     # 파일 이름이 중복되면 안되므로, 지금 시간을 해당 파일 이름으로 만들어서 중복이 되지 않게 함!
@@ -37,14 +34,16 @@ def file_upload():
     # 아래와 같이 입력하면 db에 추가 가능!
     doc = {
         'title': title_receive,
-        'img': f'{filename}.{extension}'}
+        'img': f'{filename}.{extension}',
+        'created_at': mytime
+    }
+
     db.feed.insert_one(doc)
 
     # doc = {
     #     'feed_img_src': feed_img_src,
     #     'user_id': user_id,
     #     'content': content,
-    #     'created_at': created_at
     # }
     return jsonify({'result': '업로드 완료!'})
 
