@@ -1,3 +1,4 @@
+from flask import render_template
 # create a YOLOv3 Keras model and save it to file
 # based on https://github.com/experiencor/keras-yolo3
 import struct
@@ -168,6 +169,6 @@ model.save('model.h5')
 
 model = load_model('model.h5')
 
-#희수님페이지로 가는함수를 실행
+
 
 

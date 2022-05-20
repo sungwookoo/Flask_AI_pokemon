@@ -1,3 +1,4 @@
+from flask import render_template
 # load yolov3 model and perform object detection
 # based on https://github.com/experiencor/keras-yolo3
 import numpy as np
@@ -244,3 +245,8 @@ def pokemondata():
 
 
 print(pokemondata())
+
+
+def go_result():
+    return render_template('result.html')
+go_result()
