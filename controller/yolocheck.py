@@ -8,9 +8,9 @@ from keras.preprocessing.image import load_img #이미지를 PIL형식으로 로
 from keras.preprocessing.image import img_to_array #PIL Image 인스턴스를 Numpy배열로 변환
 from matplotlib import pyplot
 from matplotlib.patches import Rectangle # 사각형 그리기.
-from user import authrize
 from pymongo import MongoClient
 import datetime
+from controller.user import authrize
 
 client = MongoClient('localhost', 27017)
 db = client.dbpokemon
