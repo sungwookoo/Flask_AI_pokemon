@@ -1,10 +1,13 @@
 function posting() {
-    let title = $('#title').val()
+    // let title = $('#title').val()
     let file = $('#file')[0].files[0]
+    let file_title = 'upload'
+
     let form_data = new FormData()
 
-    form_data.append("title_give", title)
+    // form_data.append("title_give", title)
     form_data.append("file_give", file)
+    form_data.append("file_title_give", file_title)
 
     $.ajax({
         type: "POST",
@@ -19,9 +22,3 @@ function posting() {
         }
     });
 }
-
-  // function find_img() {
-  //   let title = $('#find_title').val()
-  //   document.getElementById('link').href = '/fileshow/'+title
-  // }
-
