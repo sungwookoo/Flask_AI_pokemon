@@ -2,8 +2,8 @@ let page = 1;
 let total_feed = 0;
 
 $(document).ready(function () {
-    getHistory();
     getProfile();
+    getHistory();
 })
 
 function nextPage() {
@@ -43,7 +43,7 @@ function getProfile() {
                         <div class="profile_nickname">${name}</div>
                     </div>
                     <div class="profile_post_box">
-                        <div class="profile_post">수집한 포켓몬 수 : ${total_feed}</div>
+                        <div class="profile_post">수집한 포켓몬 수 : <span id="total_feed"></span></div>
                     </div>
                 </div> `
             $('#profile_data').append(temp_html);
@@ -62,6 +62,7 @@ function getHistory() {
             console.log(response)
             let feeds = response['feed_list'];
             let user = response['user'];
+            $('#total_feed').html(response['total_feed']);
             total_feed = parseInt(response['total_feed']);
             for (let k = 0; k < feeds.length; k++) {
                 // if (current_user_id === feeds[k]['user_id']) {
