@@ -8,10 +8,6 @@ from keras.preprocessing.image import load_img #이미지를 PIL형식으로 로
 from keras.preprocessing.image import img_to_array #PIL Image 인스턴스를 Numpy배열로 변환
 from matplotlib import pyplot
 from matplotlib.patches import Rectangle # 사각형 그리기.
-from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
-db = client.dbpokemon
-
 
 
 
@@ -180,7 +176,7 @@ model = load_model('model.h5')
 # define the expected input shape for the model
 input_w, input_h = 416, 416
 # define our new photo
-photo_filename = 'test.jpg'
+photo_filename = 'zebra2.jpg'
 # load and prepare image
 image, image_w, image_h = load_image_pixels(photo_filename, (input_w, input_h))
 # make prediction
@@ -247,6 +243,6 @@ def pokemondata():
 print(pokemondata())
 
 
-def go_result():
-    return render_template('result.html')
-go_result()
+# def go_result():
+#     return render_template('result.html')
+# go_result()
