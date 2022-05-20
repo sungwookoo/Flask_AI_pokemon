@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from datetime import datetime
 # from user import authrize
 from controller.yolocheck import yolo
+import os
 
 bp = Blueprint('feed_upload', __name__, url_prefix='/')
 
@@ -21,6 +22,8 @@ def file_upload():
     # 파일 저장!
     file.save(save_to)
     result = yolo()
+    file_path = 'static/uploads/temp.jpg'
+    os.remove(file_path)
     if result == 'fail':
         return jsonify({'result': '업로드 실패'})
 
