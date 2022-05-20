@@ -30,19 +30,21 @@
         </li>
     </ul>
 
+ <!-- 이미지 업로드  -->
     <div class="main_container">
         <div class="file_upload">
-{#            <input style="width:300px;" type="text" id="title" placeholder="업로드할 이미지 제목을 입력해주세요">#}
-            <input class="file_choice" type="file" id="file">
+{#            <img class="img_read" src="" id="img_section">#}
+            <input class="file_choice" type="file" id="file" name="imageSelector"
+            accept="image/jpeg, image/jpg, image/png" multiple>
         </div>
         <div class="content_box">
             <p class="label">
-                <button class="upload_button" onclick="posting()">결과확인</button>
+                <button class="upload_button" onclick="posting()">Find pokemon !</button>
             </p>
         </div>
     </div>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="../static/js/index.js"></script>
 
