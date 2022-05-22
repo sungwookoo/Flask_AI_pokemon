@@ -5,7 +5,7 @@ import jwt
 import hashlib
 from config.config import Config
 from pymongo import MongoClient
-from datetime import date, datetime, timedelta
+import datetime
 
 client = MongoClient('localhost', 27017)
 db = client.dbpokemon
@@ -16,23 +16,20 @@ def authrize(f):
     @wraps(f)
     def decorated_function(*args, **kws):
         if not 'mytoken' in request.cookies:
-            abort(401)
-        user = None
-        token = request.cookies['mytoken']
+            return render_template('login.html')
         try:
+            token = request.cookies['mytoken']
             user = jwt.decode(token,SECRET_KEY, algorithms=['HS256'])
-        except:
-            abort(401)
-        return f(user, *args, **kws)
+            return f(user, *args, **kws)
+        except jwt.ExpiredSignatureError:
+            return render_template('login.html')
 
     return decorated_function
 
 
 @bp.route('/')
 @authrize
-def login(user):
-    if user is not None:
-        return render_template('index.html')
+def login():
     return render_template('login.html')
 
 
@@ -91,7 +88,7 @@ def sign_in():
         payload = {
             'user_id' : str(result.get('user_id')),
             'nick_name':result.get('nick_name'),
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=100)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=10)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
