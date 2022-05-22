@@ -5,7 +5,7 @@ function logout() {
         data: {},
         success: function (response) {
             if (response['result'] === 'success') {
-                $.removeCookie('token', response['token'])
+                $.removeCookie('mytoken', response['token'])
                 alert(response['msg'])
                 window.location.href = '/';
             } else {

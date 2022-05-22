@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify, request, abort
+from flask import Blueprint, render_template, jsonify, request, redirect, url_for
 bp = Blueprint('user', __name__, url_prefix='/')
 from functools import wraps
 import jwt
@@ -21,7 +21,7 @@ def authrize(f):
             token = request.cookies['mytoken']
             user = jwt.decode(token,SECRET_KEY, algorithms=['HS256'])
             return f(user, *args, **kws)
-        except jwt.ExpiredSignatureError:
+        except jwt.ExpiredSignatureError or jwt.exceptions.DecodeError:
             return render_template('login.html')
 
     return decorated_function
@@ -29,14 +29,15 @@ def authrize(f):
 
 @bp.route('/')
 @authrize
-def login():
+def login(user):
+    if user is not None:
+        return redirect(url_for('user.home'))
     return render_template('login.html')
 
 
 @bp.route('/main')
 @authrize
 def home(user):
-    print(user)
     if user is not None:
         return render_template('index.html')
 
@@ -88,7 +89,7 @@ def sign_in():
         payload = {
             'user_id' : str(result.get('user_id')),
             'nick_name':result.get('nick_name'),
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=10)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=100)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
@@ -100,7 +101,7 @@ def sign_in():
 # 로그아웃 API
 @bp.route("/api/logout", methods=['GET'])
 def logout_proc():
-    token_receive = request.cookies.get('token')
+    token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
         return jsonify({
