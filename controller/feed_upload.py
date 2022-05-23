@@ -1,6 +1,5 @@
-from flask import Blueprint, render_template, jsonify, request, redirect, url_for
+from flask import Blueprint, render_template, jsonify, request
 from pymongo import MongoClient
-from datetime import datetime
 from controller.yolocheck import yolo
 import os
 
