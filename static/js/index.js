@@ -40,7 +40,9 @@ function posting() {
         processData: false,
         success: function (response) {
             alert(response["result"])
+            if (response["result"]=='업로드 완료!') {
             window.location.replace('/result')
+        }else {window.location.href='/'}
         }
     });
 }
