@@ -40,7 +40,7 @@ function posting() {
         processData: false,
         success: function (response) {
             alert(response["result"])
-            window.location.replace('/result')
+            window.location.reload()
         }
     });
 }

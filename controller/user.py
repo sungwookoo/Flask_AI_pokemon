@@ -3,14 +3,13 @@ bp = Blueprint('user', __name__, url_prefix='/')
 from functools import wraps
 import jwt
 import hashlib
-# from config.config import Config
+from config.config import Config
 from pymongo import MongoClient
 import datetime
 
 client = MongoClient('localhost', 27017)
 db = client.dbpokemon
-# SECRET_KEY = Config.SECRET_KEY
-SECRET_KEY = 'abc'
+SECRET_KEY = Config.SECRET_KEY
 
 
 def authrize(f):
