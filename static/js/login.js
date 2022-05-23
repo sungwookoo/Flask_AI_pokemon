@@ -1,7 +1,9 @@
 const monsterball = document.querySelector('.container');
 const loginbuttom = document.querySelector('#btn_login');
 loginbuttom.addEventListener('click', sign_in)
-
+$(document).ready(function () {
+    pokemove()
+})
 function sign_in() {
     user_id = $('#user_id').val();
     password = $('#password').val();
@@ -17,11 +19,11 @@ function sign_in() {
             if (response['result'] == 'success') {
                 let yPos=0;
                 function ball() {
-                    monsterball.style.transform = "rotate(" + yPos + "turn)";
-                    monsterball.style.opacity = 1-0.01*yPos;
-                    yPos += 0.1;
+                    monsterball.style.transform = "rotate(" + 10*yPos + "turn)";
+                    monsterball.style.opacity = yPos%1;
+                    yPos += 0.01;
                     raf = requestAnimationFrame(ball)
-                    if (yPos >100) {
+                    if (yPos >3) {
                         cancelAnimationFrame(raf)
                         $.cookie('mytoken', response['token'], {path: '/'});
                         window.location.replace('/main')
@@ -52,3 +54,15 @@ $('.container').keyup('keyup', function(event) {
         }
 
 });
+
+const movepok = document.querySelectorAll('.movepo');
+let move=0;
+function pokemove() {
+
+    movepok[1].style.marginBottom = 100*Math.sin(move)+'px';
+
+    movepok[3].style.marginBottom = 100*Math.sin(move)+'px';
+    move += Math.PI/16;
+    raf = requestAnimationFrame(pokemove)
+}
+
