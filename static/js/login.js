@@ -32,3 +32,9 @@ function sign_in() {
     });
 }
 
+$('.container').keyup('keyup', function(event) {
+    if(event.keyCode === 13) {
+        $('#btn_login').click();
+        }
+
+});

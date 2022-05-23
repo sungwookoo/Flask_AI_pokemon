@@ -114,3 +114,4 @@ def logout_proc():
             'result': 'fail',
             'msg': '로그아웃 실패'
         })
+
