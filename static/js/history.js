@@ -84,7 +84,7 @@ function getHistory() {
             let feeds = response['feed_list'];
             let user = response['user'];
             let total_feed = parseInt(response['total_feed']);
-            $('#total_feed').html((total_feed / 79 * 100).toFixed(2) + "% (" + total_feed + " of 79)");
+            $('#total_feed').html((total_feed / 80 * 100).toFixed(2) + "% (" + total_feed + " of 80)");
             global_total_feed = parseInt(response['total_feed']);
             for (let k = 0; k < feeds.length; k++) {
                 // if (current_user_id === feeds[k]['user_id']) {
