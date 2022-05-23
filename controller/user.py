@@ -66,7 +66,8 @@ def check():
         doc = {
             "user_id": new_id_receive,
             "password": hashed_password,
-            "nick_name": new_nick_name_receive
+            "nick_name": new_nick_name_receive,
+            "number_of_poke":0
             }
         db.user.insert_one(doc)
         return jsonify({"result": "success", 'msg': '회원가입을 축하합니다.', 'url': "/"})
