@@ -9,24 +9,26 @@
     <link href="../static/style/index.css" rel="stylesheet" type="text/css"/>
     <link href="../static/style/common.css" rel="stylesheet" type="text/css"/>
     <link href="../static/style/result.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=Noto+Serif+KR:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
- <!-- navigation 부분 각 html에 추가 해주세요  -->
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link logo" aria-current="page" href="#"><img src="../static/images/logo.png" alt=""></a>
+<!-- navigation 부분 각 html에 추가 해주세요  -->
+    <ul class="custom_nav">
+        <li class="custom_nav-item">
+          <a class="custom_nav-link logo" aria-current="page" href="/"><img src="../static/images/logo.png" alt=""></a>
 
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">업로드</a>
+        <li class="custom_nav-item">
+          <a class="custom_nav-link" href="/">Upload</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">내역화면</a>
+        <li class="custom_nav-item">
+          <a class="custom_nav-link" href="/history">Collection</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">로그아웃</a>
+        <li class="custom_nav-item">
+          <a class="custom_nav-link disabled" tabindex="-1" aria-disabled="true" onclick="logout()">Logout</a>
         </li>
     </ul>
 
