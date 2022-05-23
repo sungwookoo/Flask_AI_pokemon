@@ -16,7 +16,6 @@ def result():
 def get_imgresult():
     result = list(db.feed.find())
     result_img = result[-1]['feed_img_src']
-    print(result_img)
     return jsonify({
         'result_img': result_img
     })
@@ -24,16 +23,18 @@ def get_imgresult():
 @bp.route('/api/get_pokeresult', methods=['GET'])
 def get_pokeresult():
     result = list(db.feed.find())
-    result_poke = result[-1]['poke_li'][0]
-    print(result_poke)
+    result_poke = result[-1]['poke_li']
+    result_img = result[-1]['feed_img_src']
     return jsonify({
-        'result_poke':result_poke
+        'result_img': result_img,
+        'result_poke': result_poke
     })
 @bp.route('/api/get_accresult', methods=['GET'])
 def get_accresult():
     result = list(db.feed.find())
-    result_acc = result[-1]['acc_li'][0]
-    print(result_acc)
+    result_poke = result[-1]['poke_li']
+    result_acc = result[-1]['acc_li']
     return jsonify({
-        'result_acc':result_acc
+        'result_poke': result_poke,
+        'result_acc': result_acc
     })
