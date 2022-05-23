@@ -89,6 +89,7 @@ body {
     height:100%;
     padding: 0.5em;
     flex-flow: row wrap;
+    overflow: hidden;
     /*justify-content: center;*/
     align-content: center;
 }
