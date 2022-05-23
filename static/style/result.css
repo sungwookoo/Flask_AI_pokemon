@@ -1,15 +1,25 @@
 .result_display{
+    margin-top: -37px;
     width: 100%;
-    height: 80%;
+    height: 60%;
+}
+#result_pokemon{
+    width: 100%;
+    height: 100%;
 }
 .result_desc{
     margin-top:-10px;
     width: 100%;
-    height: 20%;
+    height: 40%;
     text-align: center;
     color: white;
     font-size: 20px;
 }
+#dogam{
+    margin-top: -30px;
+    font-size: 25px;
+}
 .result_desc > p{
-    padding:0
+    padding:0;
+    margin-top: -5px
 }
