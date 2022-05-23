@@ -63,7 +63,7 @@ function getProfile() {
                 </div> 
                 <div class="profile_word">
                     <div class="profile_post_box">
-                        <div class="profile_count">완성도: <span id="total_feed"></span></div>
+                        <div class="profile_count">완성도 : <span id="total_feed"></span></div>
                     </div>
                 </div>
             `
