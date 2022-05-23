@@ -1,0 +1,15 @@
+.result_display{
+    width: 100%;
+    height: 80%;
+}
+.result_desc{
+    margin-top:-10px;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.result_desc > p{
+    padding:0
+}

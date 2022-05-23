@@ -14,31 +14,30 @@
 <body>
 
  <!-- navigation 부분 각 html에 추가 해주세요  -->
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link logo" aria-current="page" href="#"><img src="../static/images/logo.png" alt=""></a>
+       <ul class="custom_nav">
+        <li class="custom_nav-item">
+          <a class="custom_nav-link logo" aria-current="page" href="/"><img src="../static/images/logo.png" alt=""></a>
 
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">업로드</a>
+        <li class="custom_nav-item">
+          <a class="custom_nav-link" href="/">Upload</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">내역화면</a>
+        <li class="custom_nav-item">
+          <a class="custom_nav-link" href="/history">Collection</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" onclick="logout()">로그아웃</a>
+        <li class="custom_nav-item">
+          <a class="custom_nav-link disabled" tabindex="-1" aria-disabled="true" onclick="logout()">Logout</a>
         </li>
     </ul>
 
  <!-- 이미지 업로드  -->
     <div class="main_container">
         <div class="light">
-{#            <img class="circle" src="../static/images/circle.png" alt="">#}
         </div>
         <div class="file_upload">
             <input class="file_choice" type="file" id="file" name="imageSelector"
             accept="image/jpeg, image/jpg, image/png" multiple>
-            <img class="img_read" src="" id="img_section">
+            <img class="img_read" src="../static/images/text.png" id="img_section">
         </div>
         <div class="content_box">
             <p class="label">

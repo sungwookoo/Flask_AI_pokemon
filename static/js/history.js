@@ -6,6 +6,24 @@ $(document).ready(function () {
     getHistory();
 })
 
+function logout() {
+    $.ajax({
+        type: "GET",
+        url: "/api/logout",
+        data: {},
+        success: function (response) {
+            if (response['result'] === 'success') {
+                $.removeCookie('mytoken', response['token'])
+                alert(response['msg'])
+                window.location.href = '/';
+            } else {
+                alert(response['msg'])
+                window.location.href = '/';
+            }
+        }
+    })
+}
+
 function nextPage() {
     if (global_total_feed < 9 || (global_total_feed - (page * 8) <= 0)) {
         alert("마지막 페이지입니다.")
