@@ -6,7 +6,9 @@
     <title>pokemon</title>
     <link href="../static/style/history.css" rel="stylesheet" type="text/css"/>
     <link href="../static/style/common.css" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=Noto+Serif+KR:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=Noto+Serif+KR:wght@600&family=Pacifico&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Koulen&display=swap" rel="stylesheet">
     <!-- favicon -->
     <link rel="icon" href="../static/img/favicon.png">
     <link rel="instagram-icon" href="../static/img/favicon.png">
@@ -27,62 +29,73 @@
 
 <body>
 <!-- navigation 부분 각 html에 추가 해주세요  -->
-    <ul class="custom_nav">
-        <li class="custom_nav-item">
-          <a class="custom_nav-link logo" aria-current="page" href="/"><img src="../static/images/logo.png" alt=""></a>
+<ul class="custom_nav">
+    <li class="custom_nav-item">
+        <a class="custom_nav-link logo" aria-current="page" href="/"><img src="../static/images/logo.png" alt=""></a>
 
-        </li>
-        <li class="custom_nav-item">
-          <a class="custom_nav-link" href="/">Upload</a>
-        </li>
-        <li class="custom_nav-item">
-          <a class="custom_nav-link" href="/history">Collection</a>
-        </li>
-        <li class="custom_nav-item">
-          <a class="custom_nav-link disabled" tabindex="-1" aria-disabled="true" onclick="logout()">Logout</a>
-        </li>
-    </ul>
-    <!-- 출력 화면 창 크기 고정 되어 있음 -->
+    </li>
+    <li class="custom_nav-item">
+        <a class="custom_nav-link" href="/">Upload</a>
+    </li>
+    <li class="custom_nav-item">
+        <a class="custom_nav-link" href="/history">Collection</a>
+    </li>
+    <li class="custom_nav-item">
+        <a class="custom_nav-link disabled" tabindex="-1" aria-disabled="true" onclick="logout()">Logout</a>
+    </li>
+</ul>
+<!-- 출력 화면 창 크기 고정 되어 있음 -->
+<!-- ranking -->
+<div id="ranking_data" class="ranking">
+    <div class="rankbutton_box">
+        <button type="button" class="btn btn-light rankbutton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            RANKING
+        </button>
+    </div>
+</div>
 <!-- profile -->
-    <div class="profile" id="profile_data"></div>
-<!-- feed -->
-    <div class="custom_container">
-        <div class="feed_container_side"><a class="btn_page" onclick="prevPage()"><img class="btn_prev" ></a></div>
-        <article id="feed_data" class="feed_container"></article>
-        <div class="feed_container_side" style="align-items: flex-end"><a class="btn_page" onclick="nextPage()"><img class="btn_next"></a></div>
-    </div>
-    <div class="badge_container">
-        <div id="badge_data" class="badges">
-<!--            <img src="../static/images/badges/badge01.png">-->
-        </div>
-        <div id="ranking_data" class="ranking">
-            <div>
-                <button type="button" class="rankbutton" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    랭킹
-                </button>
+<div class="profile" id="profile_data"></div>
 
-            </div>
-        </div>
+<!-- feed -->
+<div class="custom_container">
+    <div class="feed_container_side"><a class="btn_page" onclick="prevPage()"><img class="btn_prev"></a></div>
+    <article id="feed_data" class="feed_container"></article>
+    <div class="feed_container_side" style="align-items: flex-end"><a class="btn_page" onclick="nextPage()"><img
+            class="btn_next"></a></div>
+</div>
+<div class="badge_container">
+    <div id="badge_data" class="badges">
+        <!--            <img src="../static/images/badges/badge01.png">-->
     </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">랭킹</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <ul id="modalrank">
+    <div class="modal-dialog" style="height:635px">
+        <div class="modal-content" style="height:100%">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-family: Jua" id="exampleModalLabel">RANKING</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table" style="font-family: 'Jua'" id="">
+                    <thead>
+                    <tr style="text-align: center">
+                        <th scope="col">RANK</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">COLLECTED</th>
+                    </tr>
+                    </thead>
+                    <tbody id="modalrank">
 
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <script src="../static/js/history.js"></script>
 </body>
