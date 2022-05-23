@@ -26,9 +26,12 @@
 .img_read{
     width: 100%;
     height: 345px;
+    top: 0;
+    left: 0;
 }
 
 .file_upload{
+    position: relative;
     margin-left: 8%;
     margin-top: 3.3%;
     width: 84.3%;
@@ -37,9 +40,12 @@
 }
 
 .file_choice{
+    position: absolute;
     background-color: greenyellow;
     width: 356.5px;
     height: 342px;
+    top: 0;
+    left: 0;
     opacity: 0;
 }
 
