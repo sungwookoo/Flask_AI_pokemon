@@ -3,27 +3,38 @@ body {
     background-size: cover;
     height: 100vh;
     font-family: 'Dokdo', cursive;
+    margin:0;
 }
 
 .nav{
-    padding: 0px;
-    height: 8vh;
+    padding: 0;
+    margin: 0 auto;
+    height: 50px;
     display: flex;
     list-style: none;
     background-color: white;
-    opacity: 0.5;  
+    opacity: 0.5;
+    align-items: center;
 }
 .nav-item{
-    margin: 10px 30px 10px 30px;
+    width: 100%;
     text-align: center;
+    cursor: pointer;
 }
+
 .nav-item > a {
+    margin : auto;
     text-decoration: none;
     color: black;
     font-family: 'Dokdo', cursive;
-    font-size: 30px;
-
+    font-size: 25px;
 }
+.nav-item:hover {
+    background-color: powderblue;
+    transition: background-color 1s;
+}
+
+
 .nav-link.logo{
     display: block;
     width: 100%;

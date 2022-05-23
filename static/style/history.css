@@ -6,12 +6,25 @@ img{
     /*background-color: white !important;*/
 }
 
-body {
-    display:flex;
-    flex-direction:column;
-}
+/*body {*/
+/*    display:flex;*/
+/*    flex-direction:column;*/
+/*}*/
 
 /*profile*/
+
+.profile{
+    display:flex;
+    flex-direction: row;
+    position: relative;
+    width: 68.7%;
+    height: 100px;
+    margin: 20px auto 0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba( 255, 255, 255, 0.4 );
+}
+
 .profile_nickname_box{
     display: flex;
 }
@@ -21,8 +34,7 @@ body {
 }
 
 .profile_nickname{
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 30px;
 }
 .profile_pic{
     height: 80px;
@@ -34,8 +46,6 @@ body {
 
 .profile_post_box{
     display: flex;
-    margin-top: 30px;
-    font-size: 20px;
 }
 .profile_count{
     font-size: 25px;
@@ -53,21 +63,9 @@ body {
 
 /*feed*/
 
-.profile{
-    display:flex;
-    flex-direction: row;
-    position: relative;
-    width: 68.7%;
-    height: 100px;
-    margin: 20px auto 0;
-    justify-content: space-around;
-    background-color: rgba( 255, 255, 255, 0.4 );
-}
-
 .container{
     display:flex;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin: 3% auto;
     flex-direction: row;
     width:68.7% !important;
     height: 500px;
