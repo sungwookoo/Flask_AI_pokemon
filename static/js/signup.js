@@ -116,5 +116,9 @@ function is_nick_name(asValue) {
     return can_input.test(asValue);
 }
 
+$('.container').keyup('keyup', function(event) {
+    if(event.keyCode === 13) {
+        $('#btn_signup').click();
+        }
 
-
+});

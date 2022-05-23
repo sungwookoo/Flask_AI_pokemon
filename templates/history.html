@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Instagram</title>
+    <title>pokemon</title>
     <link href="../static/style/history.css" rel="stylesheet" type="text/css"/>
     <link href="../static/style/common.css" rel="stylesheet" type="text/css"/>
     <!-- favicon -->
@@ -47,17 +47,17 @@
     <div class="line"><!-- 선 --></div>
 <!-- feed -->
     <div class="container">
-        <div class="feed_container_side"><div class="btn_page"><img class="btn_prev" onclick="prevPage()"></div></div>
+        <div class="feed_container_side"><a class="btn_page" onclick="prevPage()"><img class="btn_prev" ></a></div>
         <article id="feed_data" class="feed_container"></article>
-        <div class="feed_container_side"><div class="btn_page"><img class="btn_next" onclick="nextPage()"></div></div>
+        <div class="feed_container_side" style="align-items: flex-end"><a class="btn_page" onclick="nextPage()"><img class="btn_next"></a></div>
     </div>
     <div class="badge_container">
         <div id="badge_data" class="badges">
-            <img src="../static/images/badges/badge01.png">
-            <img src="../static/images/badges/badge02.png">
-            <img src="../static/images/badges/badge03.png">
+<!--            <img src="../static/images/badges/badge01.png">-->
         </div>
-        <div id="ranking_data" class="ranking"> </div>
+        <div id="ranking_data" class="ranking">
+            <div></div>
+        </div>
     </div>
 </body>
 

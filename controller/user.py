@@ -1,42 +1,43 @@
-from flask import Blueprint, render_template, jsonify, request, abort
+from flask import Blueprint, render_template, jsonify, request, redirect, url_for
 bp = Blueprint('user', __name__, url_prefix='/')
 from functools import wraps
 import jwt
 import hashlib
 from config.config import Config
 from pymongo import MongoClient
-from datetime import date, datetime, timedelta
+import datetime
 
 client = MongoClient('localhost', 27017)
 db = client.dbpokemon
-
 SECRET_KEY = Config.SECRET_KEY
 
-@bp.route('/')
-def login():
-
-    return render_template('login.html')
 
 def authrize(f):
     @wraps(f)
     def decorated_function(*args, **kws):
         if not 'mytoken' in request.cookies:
-            abort(401)
-        user = None
-        token = request.cookies['mytoken']
+            return render_template('login.html')
         try:
+            token = request.cookies['mytoken']
             user = jwt.decode(token,SECRET_KEY, algorithms=['HS256'])
-        except:
-            abort(401)
-        return f(user, *args, **kws)
+            return f(user, *args, **kws)
+        except jwt.ExpiredSignatureError or jwt.exceptions.DecodeError:
+            return render_template('login.html')
 
     return decorated_function
+
+
+@bp.route('/')
+@authrize
+def login(user):
+    if user is not None:
+        return redirect(url_for('user.home'))
+    return render_template('login.html')
 
 
 @bp.route('/main')
 @authrize
 def home(user):
-    print(user)
     if user is not None:
         return render_template('index.html')
 
@@ -87,10 +88,30 @@ def sign_in():
     if result is not None:
         payload = {
             'user_id' : str(result.get('user_id')),
-            'nick_name':result.get('nick_name')
+            'nick_name':result.get('nick_name'),
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=6000)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
         return jsonify({'result': 'success', 'token': token})
     else:
         return jsonify({'result':'fail', 'msg': 'id, pw 를 확인해주세요'})
+
+
+# 로그아웃 API
+@bp.route("/api/logout", methods=['GET'])
+def logout_proc():
+    token_receive = request.cookies.get('mytoken')
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        return jsonify({
+            'result': 'success',
+            'token': jwt.encode(payload, SECRET_KEY, algorithm='HS256'),
+            'msg': '로그아웃 성공'
+        })
+    except jwt.ExpiredSignatureError or jwt.exceptions.DecodeError:
+        return jsonify({
+            'result': 'fail',
+            'msg': '로그아웃 실패'
+        })
+
