@@ -13,5 +13,8 @@ def create_app():
     from controller import feed_upload
     app.register_blueprint(feed_upload.bp)
 
+    from controller import feed_result
+    app.register_blueprint(feed_result.bp)
+
     return app
 
