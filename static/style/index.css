@@ -5,13 +5,13 @@
 /*이미지 업로드 박스*/
 .main_container{
     margin: 10px auto;
-    padding-top: 100px;
-    width: 30%;
+    padding-top: 101px;
+    width: 420px;
     height: 550px;
+    border-radius: 10px;
     background-image: url("/static/images/pokedex.jpeg");
     background-position: center;
     background-size: cover;
-    border-radius: 10px;
 }
 
 .img_box{
@@ -24,7 +24,7 @@
 }
 
 .img_read{
-    width: 100%;
+    width: 355px;
     height: 345px;
     top: 0;
     left: 0;
@@ -32,9 +32,9 @@
 
 .file_upload{
     position: relative;
-    margin-left: 8%;
-    margin-top: 3.3%;
-    width: 84.3%;
+    margin-left: 33px;
+    margin-top: 13px;
+    width: 360px;
     height: 345px;
     background-color: black;
 }
@@ -54,8 +54,8 @@
 }
 
 .upload_button{
-    margin-top: 13%;
-    margin-left: 30%;
+    margin-top: 55px;
+    margin-left: 126px;
     background-color: darkseagreen;
     color: black;
     width: 190px;
