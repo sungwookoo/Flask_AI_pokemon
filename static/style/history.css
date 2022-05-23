@@ -58,6 +58,16 @@ body {
 
 /*feed*/
 
+.feed{
+
+}
+
+.feed img{
+    width: 186px;
+    height: 186px;
+    object-fit: cover;
+}
+
 .custom_container{
     display:flex;
     margin: 3% auto;
@@ -145,14 +155,4 @@ body {
     height: 100%;
     content:url("../images/btn_prev.png");
     background-size: contain;
-}
-
-.feed{
-    margin: 1em;
-}
-
-.feed img{
-    width: 186px;
-    height: 186px;
-    object-fit: cover;
 }
