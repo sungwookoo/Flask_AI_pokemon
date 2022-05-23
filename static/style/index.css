@@ -17,15 +17,16 @@
 .light{
     margin-top: -89px;
     margin-left: 34px;
-    margin-bottom: 52px;
-    width: 70px;
-    height: 50px;
-}
-
-.circle{
+    margin-bottom: -17px;
     width: 70px;
     height: 70px;
+    border-radius: 100%;
 }
+
+/*.circle{*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*}*/
 
 .img_box{
     margin-left: 15%;
