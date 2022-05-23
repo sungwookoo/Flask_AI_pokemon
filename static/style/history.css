@@ -92,12 +92,14 @@ body {
 /*feed*/
 
 .feed {
+    width:24%;
+    text-align: center;
 
 }
 
 .feed img {
-    width: 186px;
-    height: 186px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -114,14 +116,16 @@ body {
 .feed_container_side {
     display: flex;
     position: relative;
+    width:55px;
     height: 100%;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .feed_container {
     display: flex;
-    width: 90%;
+    width: 100%;
     position: relative;
     height: 100%;
     padding: 0.5em;
@@ -137,7 +141,7 @@ body {
     flex-direction: column;
     margin: 0 auto;
     width: 68.7%;
-    height: 150px;
+    height: 100px;
     /*background-color: #0095f6;*/
     justify-content: center;
     align-content: center;
@@ -147,19 +151,20 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     margin: 0 auto;
     position: relative;
     width: 100%;
-    height: 150px;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.4);
 }
 
 .badges img {
-    margin: 10px 10px 10px 60px;
+    margin: 10px 10px 10px 10px;
     width: 50px;
     height: 50px;
+    height: fit-content;
     object-fit: contain;
 
 }
