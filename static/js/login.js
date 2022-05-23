@@ -1,3 +1,4 @@
+const monsterball = document.querySelector('.container');
 const loginbuttom = document.querySelector('#btn_login');
 loginbuttom.addEventListener('click', sign_in)
 
@@ -14,8 +15,21 @@ function sign_in() {
         },
         success: function (response) {
             if (response['result'] == 'success') {
-                $.cookie('mytoken', response['token'], {path: '/'});
-                window.location.replace('/main')
+                let yPos=0;
+                function ball() {
+                    monsterball.style.transform = "rotate(" + yPos + "turn)";
+                    monsterball.style.opacity = 1-0.01*yPos;
+                    yPos += 0.1;
+                    raf = requestAnimationFrame(ball)
+                    if (yPos >100) {
+                        cancelAnimationFrame(raf)
+                        $.cookie('mytoken', response['token'], {path: '/'});
+                        window.location.replace('/main')
+                    }
+                }
+                ball()
+
+
             } else {
                 var child = document.querySelector(".append_st");
                 if (child.hasChildNodes()) {
