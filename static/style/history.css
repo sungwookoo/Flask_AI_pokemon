@@ -63,7 +63,7 @@ img{
 
 /*feed*/
 
-.container{
+.custom_container{
     display:flex;
     margin: 3% auto;
     flex-direction: row;
