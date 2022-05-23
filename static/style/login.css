@@ -113,3 +113,11 @@ a {
     font-weight: bold;
     margin: 0px;
 }
+
+.img_right {
+    float : right;
+}
+
+.img_left {
+    float : left;
+}
