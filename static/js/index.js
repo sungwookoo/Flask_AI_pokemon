@@ -21,14 +21,7 @@ function posting() {
     let file = $('#file')[0].files[0]
 
     let form_data = new FormData()
-    let opaci = 0;
-    const 무언가 = document.querySelector('.container');
-    function loading() {
-        무언가.style.backgroundColor = "rgba(33,166,255,"+(1-opaci%1)+")";
-        opaci += 0.01;
-        raf = requestAnimationFrame(loading)
-    }
-    loading()
+
     form_data.append("file_give", file)
 
     $.ajax({

@@ -217,9 +217,9 @@ def yolo():
 	# get the details of the detected objects
 	v_boxes, v_labels, v_scores = get_boxes(boxes, labels, class_threshold)
 
-	labeldn = {"person":"mr-mime", "bicycle":"dodrio", "car":"entei", "motorbike":"dialga", "airplane":"latios", "bus":"charjabus","train":"onix", "truck":"pelipper",
-		"boat":"lapras", "traffic light":"pikachu", "fire hydrant":"Squirtle", "stop sign":"Hypno", "parking meter":"psyduck", "bench":"Bulbasaur",
-		"bird":"pidgeotto", "cat":"meowth", "dog":"Growlithe", "horse":"ponyta", "sheep":"mareep", "cow":"tauros", "elephant":"phanpy", "bear":"teddiursa", "zebra":"blitzle", "giraffe":"girafarig",
+	labeldn = {"person":"mr-mime", "bicycle":"dodrio", "car":"entei", "motorbike":"dialga", "aeroplane":"latios", "bus":"charjabus","train":"onix", "truck":"pelipper",
+		"boat":"lapras", "traffic light":"pikachu", "fire hydrant":"squirtle", "stop sign":"hypno", "parking meter":"psyduck", "bench":"bulbasaur",
+		"bird":"pidgeotto", "cat":"meowth", "dog":"growlithe", "horse":"ponyta", "sheep":"mareep", "cow":"tauros", "elephant":"phanpy", "bear":"teddiursa", "zebra":"blitzle", "giraffe":"girafarig",
 		"backpack":"chikorita", "umbrella":"foongus", "handbag":"azurill", "tie":"ekans", "suitcase":"trubbish", "frisbee":"jigglypuff", "skis":"lapras", "snowboard":"articuno",
 		"sports ball":"voltorb", "kite":"mantyke", "baseball bat":"Farfetchd","baseball glove":"binacle", "skateboard":"chimecho", "surfboard":"cofagrigus","tennis racket":"cradily", "bottle":"gardevoir","wine glass":"lileep",
 	"cup":"lugia", "fork":"sigilyph", "knife":"pawniard", "spoon":"kadabra", "bowl":"wobbuffet", "banana":"tropius", "apple":"tsareena", "sandwich":"dugtrio",
