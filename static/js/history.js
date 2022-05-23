@@ -87,7 +87,7 @@ function setBadge() {
     $('#badge_data').empty();
     let temp_html = ``;
     let total_feed = parseInt($('#total_feed').text());
-    total_feed = 99
+    // total_feed = 99
     for(let i = 1; i <= 8 ; i++){
         if(total_feed >= i*8) {
             console.log("!")

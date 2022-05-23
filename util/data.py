@@ -37,10 +37,13 @@ def make_insert(doc, table):
 
 
 for i in range(10):
-        doc = {
-            'user_id': 'test@test.com',
-            'content': str(i),
-            'created_at': now,
-            'feed_img_src': random_img_src()
-        }
-        make_insert(doc, 'feed')
+    poke_li = ["banana", "bird"]
+    acc_li = [98.9956200122833, 73.5150396823883]
+    doc = {
+        'user_id': 'test@test.com',
+        'poke_li': poke_li,
+        'acc_li': acc_li,
+        'created_at': now,
+        'feed_img_src': random_img_src()
+    }
+    make_insert(doc, 'feed')
