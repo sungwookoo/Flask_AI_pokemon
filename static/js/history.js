@@ -66,16 +66,16 @@ function getHistory() {
             let feeds = response['feed_list'];
             let user = response['user'];
             let total_feed = parseInt(response['total_feed']);
-            $('#total_feed').html((total_feed/79*100).toFixed(2)+"% ("+total_feed+" of 79)");
+            $('#total_feed').html((total_feed / 79 * 100).toFixed(2) + "% (" + total_feed + " of 79)");
             global_total_feed = parseInt(response['total_feed']);
             for (let k = 0; k < feeds.length; k++) {
                 // if (current_user_id === feeds[k]['user_id']) {
                 //     let feed_img_src = feeds[k]['feed_img_src'];
-                    let feed_img_src = feeds[k]['_id'];
-                    let temp_html = `
+                let feed_img_src = feeds[k]['_id'];
+                let temp_html = `
                         <div class="feed"><img src="${feed_img_src}" width="300" height="300"></div>
                         `
-                    $('#feed_data').append(temp_html);
+                $('#feed_data').append(temp_html);
 
             }
             setBadge();
@@ -88,11 +88,35 @@ function setBadge() {
     let temp_html = ``;
     let total_feed = parseInt($('#total_feed').text());
     // total_feed = 99
-    for(let i = 1; i <= 8 ; i++){
-        if(total_feed >= i*8) {
+    for (let i = 1; i <= 8; i++) {
+        if (total_feed >= i * 8) {
             console.log("!")
-            temp_html += `<img src="../static/images/badges/badge0`+i+`.png">`;
+            temp_html += `<img src="../static/images/badges/badge0` + i + `.png">`;
         }
     }
     $('#badge_data').append(temp_html);
+}
+
+
+var rankbutton = document.querySelector('.rankbutton');
+rankbutton.addEventListener('click',rank);
+function rank() {
+    $('.rank_plus').remove();
+    $.ajax({
+        type: "GET", url: "/api/rank", data: {}, success: function (response) {
+            let rankli = response['rankli'];
+            console.log(rankli)
+            for (let x = 0; x < rankli.length; x++) {
+
+                let rankid = rankli[x]['nick_name']
+                let number_poke = rankli[x]['number_of_poke'];
+                let temp_rank = `<li class="rank_plus">
+                            <span>${x+1}<p>${rankid}</p></><span style="float: right">${number_poke}</span></span>
+                        </li>`
+                $('#modalrank').append(temp_rank);
+            }
+
+        }
+
+    })
 }
