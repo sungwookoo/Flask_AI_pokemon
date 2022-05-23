@@ -89,7 +89,7 @@ def sign_in():
         payload = {
             'user_id' : str(result.get('user_id')),
             'nick_name':result.get('nick_name'),
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=100)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=6000)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
