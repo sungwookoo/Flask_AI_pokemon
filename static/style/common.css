@@ -6,7 +6,7 @@ body {
     margin:0;
 }
 
-.nav{
+.custom_nav{
     padding: 0;
     margin: 0 auto;
     height: 50px;
@@ -16,38 +16,38 @@ body {
     opacity: 0.5;
     align-items: center;
 }
-.nav-item{
+.custom_nav-item{
     width: 100%;
     text-align: center;
     cursor: pointer;
 }
 
-.nav-item > a {
+.custom_nav-item > a {
     margin : auto;
     text-decoration: none;
     color: black;
     font-family: 'Dokdo', cursive;
     font-size: 25px;
 }
-.nav-item:hover {
+.custom_nav-item:hover {
     background-color: powderblue;
     transition: background-color 1s;
 }
 
 
-.nav-link.logo{
+.custom_nav-link.logo{
     display: block;
     width: 100%;
     height: 100%;
 }
-.nav-link.logo > img{
+.custom_nav-link.logo > img{
     width: 100%;
     height: 100%;
 }
-.nav-item > a:hover{
+.custom_nav-item > a:hover{
     color: rgb(180, 63, 107);
 }
-.nav-item:last-child{
+.custom_nav-item:last-child{
     margin-left: 60%;
 }
 .result {
