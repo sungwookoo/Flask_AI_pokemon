@@ -1,5 +1,5 @@
 /**{*/
-/*    border: 1px solid red;*/
+/*    border: 1px solid greenyellow;*/
 /*}*/
 
 /*이미지 업로드 박스*/
@@ -13,6 +13,20 @@
     background-position: center;
     background-size: cover;
 }
+
+.light{
+    margin-top: -89px;
+    margin-left: 34px;
+    margin-bottom: -17px;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+/*.circle{*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*}*/
 
 .img_box{
     margin-left: 15%;
@@ -33,7 +47,7 @@
 .file_upload{
     position: relative;
     margin-left: 33px;
-    margin-top: 13px;
+    margin-top: 50px;
     width: 360px;
     height: 345px;
     background-color: black;

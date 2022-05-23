@@ -21,7 +21,14 @@ function posting() {
     let file = $('#file')[0].files[0]
 
     let form_data = new FormData()
-
+    let opaci = 0;
+    const lightbutton = document.querySelector('.light');
+    function loading() {
+        lightbutton.style.backgroundColor = "rgba(0,0,200,"+(1-opaci%1)+")";
+        opaci += 0.01;
+        raf = requestAnimationFrame(loading)
+    }
+    loading()
     form_data.append("file_give", file)
 
     $.ajax({
