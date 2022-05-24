@@ -98,7 +98,7 @@ def getrank():
                     break
                 elif c == len(rankli) - 1:
                     rankli.insert(0, find_user[i])
-                c + 1
+                c += 1
     print(rankli)
 
     return jsonify({

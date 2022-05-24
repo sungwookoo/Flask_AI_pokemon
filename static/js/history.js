@@ -90,8 +90,9 @@ function getHistory() {
                         `
                 $('#feed_data').append(temp_html);
             }
-            setBadge();
             $('#total_feed').html((total_feed / 80 * 100).toFixed(2) + "% (" + total_feed + " of 80)");
+            setBadge();
+
         }
     })
 }
