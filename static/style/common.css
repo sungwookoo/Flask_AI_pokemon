@@ -29,11 +29,6 @@ body {
     font-family: 'Dokdo', cursive;
     font-size: 25px;
 }
-.custom_nav-item:hover {
-    background-color: powderblue;
-    transition: background-color 1s;
-}
-
 
 .custom_nav-link.logo{
     display: block;
