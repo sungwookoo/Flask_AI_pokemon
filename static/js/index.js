@@ -28,7 +28,7 @@ function posting() {
         opaci += 0.01;
         raf = requestAnimationFrame(loading)
     }
-    loading()
+    if (file){loading()}
     form_data.append("file_give", file)
 
     $.ajax({

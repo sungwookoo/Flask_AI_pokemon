@@ -20,10 +20,10 @@ function sign_in() {
                 let yPos=0;
                 function ball() {
                     monsterball.style.transform = "rotate(" + 10*yPos + "turn)";
-                    monsterball.style.opacity = yPos%1;
+                    monsterball.style.opacity = 1-yPos%1;
                     yPos += 0.01;
                     raf = requestAnimationFrame(ball)
-                    if (yPos >3) {
+                    if (yPos >1) {
                         cancelAnimationFrame(raf)
                         $.cookie('mytoken', response['token'], {path: '/'});
                         window.location.replace('/main')
@@ -62,7 +62,7 @@ function pokemove() {
     movepok[1].style.marginBottom = 100*Math.sin(move)+'px';
 
     movepok[3].style.marginBottom = 100*Math.sin(move)+'px';
-    move += Math.PI/16;
+    move += Math.PI/32;
     raf = requestAnimationFrame(pokemove)
 }
 
