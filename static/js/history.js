@@ -92,7 +92,6 @@ function getHistory() {
             }
             $('#total_feed').html((total_feed / 80 * 100).toFixed(2) + "% (" + total_feed + " of 80)");
             setBadge();
-
         }
     })
 }
@@ -100,8 +99,7 @@ function getHistory() {
 function setBadge() {
     $('#badge_data').empty();
     let temp_html = ``;
-    let total_feed = parseInt($('#total_feed').text());
-    // total_feed = 99
+    let total_feed = global_total_feed;
     for (let i = 1; i <= 8; i++) {
         if (total_feed >= i * 8) {
             console.log("!")
