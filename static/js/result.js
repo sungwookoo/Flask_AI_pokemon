@@ -31,7 +31,7 @@ function getpokeResult() {
             url=url.split('.')[0];
             let result_poke = response['result_poke'][0];
             let temp_poke = `<p id="dogam">축하드려요</br> '${url}'를 발견했어요!</p>`
-            $('.result_desc').append(temp_poke);
+            $('.dogam').append(temp_poke);
         }
     })
 }
@@ -56,11 +56,14 @@ function getaccResult() {
                 temp_acc.push(result_acc[i]);
             }
             for(var i=0; i< result_acc.length;i++){
+                if (result_acc.length === 12) {
+                    break;
+                }
                 result_p = temp_poke[i];
                 result_a = temp_acc[i];
                 result_a=result_a.toFixed(2);
                 result_msg = `${result_p}(${result_a}%) `
-                $('.result_desc').append(result_msg);
+                $('.desc').append(result_msg);
             }
         }
     })
