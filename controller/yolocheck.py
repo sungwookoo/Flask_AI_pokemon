@@ -219,9 +219,9 @@ def yolo():
 
 	labeldn = {"person":"mr-mime", "bicycle":"dodrio", "car":"entei", "motorbike":"dialga", "aeroplane":"latios", "bus":"charjabus","train":"onix", "truck":"pelipper",
 		"boat":"lapras", "traffic light":"pikachu", "fire hydrant":"squirtle", "stop sign":"hypno", "parking meter":"psyduck", "bench":"bulbasaur",
-		"bird":"pidgeotto", "cat":"meowth", "dog":"growlithe", "horse":"ponyta", "sheep":"mareep", "cow":"tauros", "elephant":"phanpy", "bear":"teddiursa", "zebra":"blitzle", "giraffe":"girafarig",
+		"bird":"pidgeotto", "cat":"meowth", "dog":"growlithe", "horse":"ponyta", "sheep":"mareep", "cow":"tauros", "elephant":"phanpy", "bear":"ursaring", "zebra":"blitzle", "giraffe":"girafarig",
 		"backpack":"chikorita", "umbrella":"foongus", "handbag":"azurill", "tie":"ekans", "suitcase":"trubbish", "frisbee":"jigglypuff", "skis":"lapras", "snowboard":"articuno",
-		"sports ball":"voltorb", "kite":"mantyke", "baseball bat":"Farfetchd","baseball glove":"binacle", "skateboard":"chimecho", "surfboard":"cofagrigus","tennis racket":"cradily", "bottle":"gardevoir","wine glass":"lileep",
+		"sports ball":"voltorb", "kite":"mantyke", "baseball bat":"farfetchd","baseball glove":"binacle", "skateboard":"chimecho", "surfboard":"cofagrigus","tennis racket":"cradily", "bottle":"gardevoir","wine glass":"lileep",
 	"cup":"lugia", "fork":"sigilyph", "knife":"pawniard", "spoon":"kadabra", "bowl":"wobbuffet", "banana":"tropius", "apple":"tsareena", "sandwich":"dugtrio",
 	"broccoli":"budew", "carrot":"lopunny", "hot dog":"diglett", "pizza":"blaziken", "donut":"comfey",
 	"cake":"gothitelle","chair":"metagross", "sofa":"snorlax" ,"potted plant":"oddish", "bed":"snorlax",
