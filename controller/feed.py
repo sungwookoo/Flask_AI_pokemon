@@ -86,21 +86,8 @@ def get_user(user):
 def getrank():
     find_user = list(db.user.find({}))
     find_user = object_id_to_string(find_user)
-    rankli = []
-    c = 0
-    for i in range(len(find_user)):
-        if i == 0:
-            rankli.append(find_user[0])
-        else:
-            while c < len(rankli):
-                if rankli[len(rankli) - c - 1]['number_of_poke'] >= find_user[i]['number_of_poke']:
-                    rankli.insert(len(rankli) - c, find_user[i])
-                    break
-                elif c == len(rankli) - 1:
-                    rankli.insert(0, find_user[i])
-                c += 1
-    print(rankli)
+    find_user = sorted(find_user, key=lambda x: (-x['number_of_poke'], x['_id']))
 
     return jsonify({
-        'rankli': rankli
+        'rankli': find_user
     })
