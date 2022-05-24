@@ -247,8 +247,10 @@ def yolo():
         poke_li.append(v_labels[i])
         acc_li.append(v_scores[i])
 
+
     # draw what we found
     draw_boxes(photo_filename, v_boxes, v_labels, v_scores)
+
 
     @authrize
     def pokemondata(user):
