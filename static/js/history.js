@@ -63,7 +63,7 @@ function getProfile() {
                 </div> 
                 <div class="profile_word">
                     <div class="profile_post_box">
-                        <div class="profile_count">완성도: <span id="total_feed"></span></div>
+                        <div class="profile_count">완성도 : <span id="total_feed"></span></div>
                     </div>
                 </div>
             `
@@ -84,7 +84,7 @@ function getHistory() {
             let feeds = response['feed_list'];
             let user = response['user'];
             let total_feed = parseInt(response['total_feed']);
-            $('#total_feed').html((total_feed / 79 * 100).toFixed(2) + "% (" + total_feed + " of 79)");
+            $('#total_feed').html((total_feed / 80 * 100).toFixed(2) + "% (" + total_feed + " of 80)");
             global_total_feed = parseInt(response['total_feed']);
             for (let k = 0; k < feeds.length; k++) {
                 // if (current_user_id === feeds[k]['user_id']) {
@@ -117,7 +117,8 @@ function setBadge() {
 
 
 var rankbutton = document.querySelector('.rankbutton');
-rankbutton.addEventListener('click',rank);
+rankbutton.addEventListener('click', rank);
+
 function rank() {
     $('.rank_plus').remove();
     $.ajax({
@@ -125,12 +126,23 @@ function rank() {
             let rankli = response['rankli'];
             console.log(rankli)
             for (let x = 0; x < rankli.length; x++) {
-
+                if (rankli.length === 10) {
+                    break;
+                }
                 let rankid = rankli[x]['nick_name']
                 let number_poke = rankli[x]['number_of_poke'];
-                let temp_rank = `<li class="rank_plus">
-                            <span>${x+1}<p>${rankid}</p></><span style="float: right">${number_poke}</span></span>
-                        </li>`
+                // let temp_rank = `
+                //     <li class="rank_plus">
+                //          <span>${x+1}<p>${rankid}</p></><span style="float: right">${number_poke}</span></span>
+                //     </li>
+                // `
+                let temp_rank = `
+                    <tr class="rank_plus">
+                         <td style="text-align: center">${x + 1}</td>
+                         <td style="text-align: center">${rankid}</td>
+                         <td style="text-align: center">${number_poke} (${(number_poke / 80 * 100).toFixed(2)}%)</td>
+                    </tr>
+                `
                 $('#modalrank').append(temp_rank);
             }
 

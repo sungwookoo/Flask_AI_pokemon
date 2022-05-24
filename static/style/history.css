@@ -1,89 +1,133 @@
-*{
-    /*border: 1px solid red;*/
+body {
+    background-image: url("/static/images/history_bg.png") !important;
+    background-size: cover;
+    height: 100vh;
 }
 
-img{
-    /*background-color: white !important;*/
+/*ranking*/
+
+.ranking {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 68.7%;
+    height: 35px;
+    margin: 10px auto;
+    justify-content: flex-end;
+    align-items: center;
+    /*background-color: #00366B;*/
 }
 
-/*body {*/
-/*    display:flex;*/
-/*    flex-direction:column;*/
-/*}*/
+.rankbutton_box {
+    width: 25%;
+    text-align: right;
+}
+
+.rankbutton {
+    font-family: 'Jua', cursive;
+    font-size: 20px !important;
+    width: 50%;
+    border: 0 !important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+}
 
 /*profile*/
 
-.profile{
-    display:flex;
+.profile {
+    display: flex;
     flex-direction: row;
     position: relative;
     width: 68.7%;
     height: 100px;
-    margin: 20px auto 0;
+    margin: 0 auto 0;
     justify-content: space-around;
     align-items: center;
-    background-color: rgba( 255, 255, 255, 0.4 );
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-.profile_nickname_box{
+.profile_nickname_box {
     display: flex;
 }
-.profile_img{
+
+.profile_img {
     display: flex;
     justify-content: center;
 }
 
-.profile_nickname{
-    font-size: 30px;
+.profile_nickname {
+    font-size: 40px;
+    font-family: 'Dokdo', cursive;
 }
-.profile_pic{
-    height: 80px;
-    width: 180px;
+
+.profile_pic {
+    height: 70px;
+    width: 170px;
     margin-top: 10px;
     margin-bottom: 10px;
     /*object-fit: cover;*/
 }
 
-.profile_post_box{
+.profile_post_box {
     display: flex;
 }
-.profile_count{
-    font-size: 25px;
+
+.profile_count {
+    font-size: 20px;
+    font-family: 'Jua', cursive;
 }
-.profile_follower{
+
+.profile_follower {
     margin-left: 50px;
 }
-.profile_follow{
+
+.profile_follow {
     margin-left: 50px;
 }
-.profile_name{
+
+.profile_name {
     margin-top: 30px;
     font-size: 18px;
 }
 
 /*feed*/
 
-.custom_container{
-    display:flex;
-    margin: 3% auto;
-    flex-direction: row;
-    width:68.7% !important;
-    height: 500px;
-    justify-content: center;
-    background-color: rgba( 255, 255, 255, 0.4 );
+.feed {
+    width:24%;
+    text-align: center;
+
 }
 
-.feed_container_side{
+.feed img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.custom_container {
     display: flex;
-    position: relative; height:100%;
-    flex-direction: column;
+    margin: 20px auto;
+    flex-direction: row;
+    width: 68.7% !important;
+    height: 400px;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-.feed_container{
+.feed_container_side {
     display: flex;
     position: relative;
-    height:100%;
+    width:55px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feed_container {
+    display: flex;
+    width: 100%;
+    position: relative;
+    height: 100%;
     padding: 0.5em;
     flex-flow: row wrap;
     overflow: hidden;
@@ -91,72 +135,57 @@ img{
     align-content: center;
 }
 
-.badge_container{
+.badge_container {
     display: flex;
-    position:relative;
+    position: relative;
     flex-direction: column;
-    margin:0 auto;
+    margin: 0 auto;
     width: 68.7%;
-    height: 150px;
+    height: 100px;
     /*background-color: #0095f6;*/
     justify-content: center;
     align-content: center;
 }
 
-.badges{
-    display:flex;
+.badges {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin:0 auto;
+    margin: 0 auto;
     position: relative;
     width: 100%;
-    height: 150px;
-    background-color: rgba( 255, 255, 255, 0.4 );
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-.badges img{
-    margin: 10px 10px 10px 60px;
+.badges img {
+    margin: 10px 10px 10px 10px;
     width: 50px;
     height: 50px;
+    height: fit-content;
     object-fit: contain;
 
 }
 
 
-/*.ranking{*/
-/*    position: relative;*/
-/*    height: 50%;*/
-/*    !*background-color: #00366B;*!*/
-/*}*/
-
-.btn_page{
-    height:35px;
-    width:35px;
-    cursor:pointer;
+.btn_page {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
 }
 
-.btn_next{
+.btn_next {
     width: 100%;
     height: 100%;
-    content:url("../images/btn_next.png");
+    content: url("../images/btn_next.png");
     background-size: contain;
 }
 
-.btn_prev{
+.btn_prev {
     width: 100%;
     height: 100%;
-    content:url("../images/btn_prev.png");
+    content: url("../images/btn_prev.png");
     background-size: contain;
-}
-
-.feed{
-    margin: 1em;
-}
-
-.feed img{
-    width: 186px;
-    height: 186px;
-    object-fit: cover;
 }

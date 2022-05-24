@@ -70,7 +70,8 @@
     color: black;
     width: 190px;
     height: 90px;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Dokdo';
 }
 
 .upload_button:hover{
