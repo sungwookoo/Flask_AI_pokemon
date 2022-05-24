@@ -53,7 +53,6 @@ function getProfile() {
             let user = response['user'][0];
             let profile_img = "static/images/history.png";
             let name = user['nick_name'];
-            // let user_id = user['user_id'];
             let temp_html = `
                 <div class="profile_img"><img class="profile_pic" src="${profile_img}" alt="프로필"></div>
                 <div class="profile_word">
@@ -82,21 +81,17 @@ function getHistory() {
         success: function (response) {
             console.log(response)
             let feeds = response['feed_list'];
-            let user = response['user'];
             let total_feed = parseInt(response['total_feed']);
-            $('#total_feed').html((total_feed / 80 * 100).toFixed(2) + "% (" + total_feed + " of 80)");
             global_total_feed = parseInt(response['total_feed']);
             for (let k = 0; k < feeds.length; k++) {
-                // if (current_user_id === feeds[k]['user_id']) {
-                //     let feed_img_src = feeds[k]['feed_img_src'];
                 let feed_img_src = feeds[k]['_id'];
                 let temp_html = `
                         <div class="feed"><img src="${feed_img_src}" width="300" height="300"></div>
                         `
                 $('#feed_data').append(temp_html);
-
             }
             setBadge();
+            $('#total_feed').html((total_feed / 80 * 100).toFixed(2) + "% (" + total_feed + " of 80)");
         }
     })
 }
@@ -116,7 +111,7 @@ function setBadge() {
 }
 
 
-var rankbutton = document.querySelector('.rankbutton');
+let rankbutton = document.querySelector('.rankbutton');
 rankbutton.addEventListener('click', rank);
 
 function rank() {
@@ -131,11 +126,6 @@ function rank() {
                 }
                 let rankid = rankli[x]['nick_name']
                 let number_poke = rankli[x]['number_of_poke'];
-                // let temp_rank = `
-                //     <li class="rank_plus">
-                //          <span>${x+1}<p>${rankid}</p></><span style="float: right">${number_poke}</span></span>
-                //     </li>
-                // `
                 let temp_rank = `
                     <tr class="rank_plus">
                          <td style="text-align: center">${x + 1}</td>

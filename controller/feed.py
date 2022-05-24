@@ -23,8 +23,6 @@ def get_feed(user):
     find_user = list(db.user.find({'user_id': user['user_id']}))
     find_user = object_id_to_string(find_user)
 
-    # total_feed = db.feed.count_documents({'user_id': user_id})
-    # feed_list = list(db.feed.find({'user_id': user_id}).skip((page - 1) * 8).limit(8))
     pipeline = [
         {
             "$group": {
